@@ -1,0 +1,19 @@
+name: supabase_dbt
+version: 1.0.0
+config-version: 2
+
+# En dbt Cloud el 'profile' se ignora, pero debe existir un string
+profile: supabase_profile
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  supabase_dbt:
+    +materialized: view
